@@ -1,4 +1,111 @@
-
-.test{
+.workspace {
+    height: calc(100vh - 49px);
     background-color: var(--main-background);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.workspace>.left-menu  {
+    flex: 1 1 30%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.workspace > .left-menu >.left-menu-content{
+    min-width: 250px;
+    margin-left: auto;
+}
+.workspace>.boards {
+    flex: 1 1 70%;
+    background-color: red;
+}
+
+/* Left menu */
+
+.left-menu>.left-menu-content>.header {
+    border-bottom: 1px solid rgb(50, 50, 50);
+    padding-bottom: 5px;
+}
+
+.workspace>.left-menu>.left-menu-content>.header>div {
+
+    max-width: 650px;
+    min-width: 125px;
+    border-radius: 8px;
+
+}
+
+
+
+.workspace>.left-menu>.left-menu-content>.header {
+    gap: 8px;
+}
+
+
+.workspace>.left-menu>.left-menu-content>.header>.left-menu-buttons {
+    min-height: 20px;
+    gap: 5px;
+    transition: background 0.3s ease-in;
+}
+
+.workspace>.left-menu>.left-menu-content>.header>.left-menu-buttons img {
+    margin-right: 5px;
+}
+
+.workspace>.left-menu>.left-menu-content>.header>.left-menu-buttons a {
+    border: none;
+    border-radius: 3px;
+    color: gray;
+    font-weight: 500;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 6px 8px;
+}
+
+.workspace>.left-menu>.left-menu-content>.header>.left-menu-buttons:hover {
+    background-color: rgba(106, 106, 106, 0.469);
+    color: darkgray;
+
+}
+
+.workspace>.left-menu>.left-menu-content>.header>.left-menu-buttons a:active {
+    background-color: rgba(47, 248, 238, 0.469);
+    color: aqua;
+}
+
+/* Body */
+.body{
+    overflow-y: auto;
+    height: 60vh;
+}
+.body > .content{
+    height: auto;
+}
+.body > .content > h4{
+    font-size: 14px;
+    padding: 10px;
+    color: var(--gray);
+}
+.body >.content > .user-profile{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 52px;
+    color: var(--gray);
+    transition: background 0.2s ease-in;
+    border-radius: 8px;
+}
+.body >.content > .user-profile:hover{
+    background-color: rgba(106, 106, 106, 0.469);
+}
+.body > .content > .user-profile > #account{
+    width: 30px;
+    height: 30px;
+}
+.body > .content > .user-profile > img{
+    width: 15px;
+    height: 15px;
 }
