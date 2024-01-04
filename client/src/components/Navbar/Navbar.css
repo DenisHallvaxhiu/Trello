@@ -1,0 +1,85 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+    background-color: var(--main-background);
+    border-bottom: 1px solid #464747;
+}
+
+.navbar>.nav-left,
+.navbar>.nav-right {
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar>div>div {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s ease-in;
+    border-radius: 4px;
+}
+
+.navbar>div>div:hover {
+    background-color: var(--gray-hover);
+}
+/* Left side */
+.navbar>div>div>.arrow-down {
+    width: 15px;
+    height: 12px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.navbar>div>#create {
+    background-color: #579DDF;
+    color: black;
+    transition: background 0.1s ease-in;
+    padding: 7px 14px;
+}
+.navbar>div>#create:hover{
+    background-color: #a9cbec;
+}
+/* icons */
+#menu-icon,
+#trello-icon,
+#notification,
+#help{
+    width: 17px;
+}
+
+#trello {
+    padding-left: 5px;
+    font-size: 18px;
+    font-weight: 700;
+}
+#account-div{
+    padding: 2px;
+}
+#account{
+    width: 25px;
+}
+
+/* right side */
+
+.navbar > .nav-right > .input{
+    border: 1px solid #A6C5E229;
+}
+.nav-right > .input > img{
+    width: 15px;
+}
+.nav-right > .input > input{
+    width: 150px;
+    background-color: transparent;
+    border: none;
+    color: var(--gray);
+    padding-left: 5px;
+}
+.nav-right > .input > input::placeholder{
+    color: var(--gray);
+    padding-left: 5px;
+}
