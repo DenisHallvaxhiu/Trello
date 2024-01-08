@@ -21,7 +21,10 @@
 
 .workspace>.boards {
     flex: 1 1 70%;
-    background-color: red;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
 }
 
 /* Left menu */
@@ -137,7 +140,8 @@
     border-radius: 8px;
     cursor: pointer;
 }
-.body > .content > .rolldown > .rolldown-item:hover{
+
+.body>.content>.rolldown>.rolldown-item:hover {
     background-color: rgba(106, 106, 106, 0.469);
     color: darkgray;
 }
@@ -151,4 +155,37 @@
 .body>.content>.rolldown>.rolldown-item>#add {
     margin-left: auto;
     margin-right: 20px;
+}
+
+/* Boards */
+
+.workspace>.boards>div>.header {
+    display: flex;
+    color: var(--gray);
+    font-size: 15px;
+}
+
+.workspace>.boards>div>.header>img {
+    padding: 0 10px;
+}
+
+.workspace>.boards>div>.boardcard {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.workspace>.boards>div>.boardcard>div {
+    transition: all 0.1s ease-in;
+}
+.workspace>.boards>div>.boardcard>div > h3{
+    text-shadow: 2px 2px 4px black;
+}
+
+.workspace>.boards>div>.boardcard>div:hover {
+    scale: 1.03;
+    opacity: 0.7;
+}
+.workspace > .boards >.board-workspace > .header > h3{
+    margin: 20px 0;
 }
