@@ -1,5 +1,20 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+//////////////
+import Icons from "../Icon";
+import { Search } from "../Search/Search";
+
+export default class Navbar extends Component {
+
+
+  handleFilterChange = (filteredData) => {
+    console.log("filter data from navbar " ,filteredData);
+  }
+
+
+  render() {
+    return (
+/////////////////
 import { motion } from "framer-motion";
 
 export default function Navbar() {
@@ -7,59 +22,45 @@ export default function Navbar() {
 
   return (
     <>
+
       <div className="navbar">
         <div className="nav-left">
           <div>
-            <img
-              id="menu-icon"
-              alt="menu"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAW0lEQVR4nO2UsQnAMAwEPV5MdvR7AMkLSNPY2SMBdykNwrj4A1Un+Ob5lMgKULuL2gOxUZvnCPcPEBtQf+eJ9wi3N6A2z/NZvEPtinBkDdYUrOn5gGuqXNMT+QB1DpIc8igdOgAAAABJRU5ErkJggg=="
-            />
+            <Icons name="menu-icon" />
           </div>
           <div>
-            <img
-              id="trello-icon"
-              alt="trello"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR4nO2WPQrCQBCFt/IaARs9gJ7Au9h4D3+alNrojkWwWGd6yUxOoUfwB/QIFpENFpvIgpINNgk8CMvLfJvZB7PKGNPRxAuNcgWSPIhQLoA8t7WVfQlWmKognqugO6eyNPFNlRZQEsBDf4PcdQX7dATID8d7t2sfPjz0gXjn1iwB1ibrKc+jkVeOd+nz2Rp+AGaR70NAiZ1DjL0AzKIWkLct+n+KNEri82niYYCY8hNIplvksSsgmWjiU30Afa8WkP/Won068KYDJal9BoBytEmopkOTzN7JqQloQKoY0M2NzHOjQ9+2VtmrRQEJ+SfOteUFjgrhZZhDX5YAAAAASUVORK5CYII="
-            />
+            <Icons name='trello-icon3' />
             <p id="trello">Trello</p>
           </div>
           <div>
             Workspaces{" "}
-            <img
-              alt="arrow-down"
-              className="arrow-down"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVR4nO3YTQrCMBCG4XpDFcWFXs2Meyc9gBkvowiKPxdQiFRQRFtta9tM8Xuhu6TMQ+gijSKEEEIIIYSKRPFyaFgOxLIhlm6krJmVHrHbGnYnw26Uush73yF2e7Libw+7c+biABl2o2Smx3xWjsnMGYtl97RQDca8I3wya/aGeNF/3RAaY1IQt5niRf/jxqmVwZveymU6l0kU4JullFnIunGuF2jA0K8IDRiqChESQ1UjQmCoLkSTmNoRTWAaQ9SJaRxRByYYokpMcEQVGDWIXzDqEGUwahFFMOoReTCtQXy7O2i745Q+mdacRF5MqxBZmFYi7iW/lIjdmlhWGn8vIYQQQgihP+sKFKVHhpJKRZwAAAAASUVORK5CYII="
-            ></img>
+            <Icons name='arrow-down' />
           </div>
           <div>
             Recent{" "}
-            <img
-              alt="arrow-down"
-              className="arrow-down"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVR4nO3YTQrCMBCG4XpDFcWFXs2Meyc9gBkvowiKPxdQiFRQRFtta9tM8Xuhu6TMQ+gijSKEEEIIIYSKRPFyaFgOxLIhlm6krJmVHrHbGnYnw26Uush73yF2e7Libw+7c+biABl2o2Smx3xWjsnMGYtl97RQDca8I3wya/aGeNF/3RAaY1IQt5niRf/jxqmVwZveymU6l0kU4JullFnIunGuF2jA0K8IDRiqChESQ1UjQmCoLkSTmNoRTWAaQ9SJaRxRByYYokpMcEQVGDWIXzDqEGUwahFFMOoReTCtQXy7O2i745Q+mdacRF5MqxBZmFYi7iW/lIjdmlhWGn8vIYQQQgihP+sKFKVHhpJKRZwAAAAASUVORK5CYII="
-            ></img>
+            <Icons name='arrow-down' />
           </div>
           <div>
             Starred{" "}
-            <img
-              alt="arrow-down"
-              className="arrow-down"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVR4nO3YTQrCMBCG4XpDFcWFXs2Meyc9gBkvowiKPxdQiFRQRFtta9tM8Xuhu6TMQ+gijSKEEEIIIYSKRPFyaFgOxLIhlm6krJmVHrHbGnYnw26Uush73yF2e7Libw+7c+biABl2o2Smx3xWjsnMGYtl97RQDca8I3wya/aGeNF/3RAaY1IQt5niRf/jxqmVwZveymU6l0kU4JullFnIunGuF2jA0K8IDRiqChESQ1UjQmCoLkSTmNoRTWAaQ9SJaRxRByYYokpMcEQVGDWIXzDqEGUwahFFMOoReTCtQXy7O2i745Q+mdacRF5MqxBZmFYi7iW/lIjdmlhWGn8vIYQQQgihP+sKFKVHhpJKRZwAAAAASUVORK5CYII="
-            ></img>
+            <Icons name='arrow-down' />
           </div>
           <div>
             Templates{" "}
-            <img
-              alt="arrow-down"
-              className="arrow-down"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVR4nO3YTQrCMBCG4XpDFcWFXs2Meyc9gBkvowiKPxdQiFRQRFtta9tM8Xuhu6TMQ+gijSKEEEIIIYSKRPFyaFgOxLIhlm6krJmVHrHbGnYnw26Uush73yF2e7Libw+7c+biABl2o2Smx3xWjsnMGYtl97RQDca8I3wya/aGeNF/3RAaY1IQt5niRf/jxqmVwZveymU6l0kU4JullFnIunGuF2jA0K8IDRiqChESQ1UjQmCoLkSTmNoRTWAaQ9SJaRxRByYYokpMcEQVGDWIXzDqEGUwahFFMOoReTCtQXy7O2i745Q+mdacRF5MqxBZmFYi7iW/lIjdmlhWGn8vIYQQQgihP+sKFKVHhpJKRZwAAAAASUVORK5CYII="
-            ></img>
+            <Icons name='arrow-down' />
           </div>
           <div id="create">Create</div>
         </div>
         <div className="nav-right">
           <div className="input">
+////////////////
+            <Icons name="search" />
+            <Search data={this.props.data} onFilterChange={this.handleFilterChange}/>
+            
+          </div>
+          <div><Icons name='notification' /></div>
+          <div><Icons name='help' /></div>
+          <div id="account-div"><Icons name='account' /></div>
+///////////////
             <img
               alt="search"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADhklEQVR4nO1ZzWsTQRQfK36hCGo9eBBErXrX6lEUxT9AUNGTJ9F/wdqcPRZUCO3OpI2t7WQmhSJpzHtpwM/Sxt6i0IoHj+JNBKto5DWJTSabNNnM5qPkBwPLsvt789t57828t4x10UUXviEUTR5zFNwVGia4xiWu8JvQ8IsGXdM9oXGcnnEUHGXtBCnlVqHxBtfwmiv4KzRmaxn0bP6d64FAoKelIhwFl7jGj7VOvvKADNfJi00XIOXbXVxjsHEBxlD4WIjUzqaIcGTsoFC4UMldhMZFofC+E02cH5HJk2NjL3bToGu6xxUM0DOV3JArfDcahQO+i+AKP7j6u4JnwzJ1vFYurhJ9QuOkuyDIBGdSvb65U4WVWA5Nz532yss19AsNKy5i5n1xswoxAePPX+1rlHtYxvdzjegWM8wmuMbLbiKCwfQ2WzaIy00Mt5XNaJ9wSbHLNlbCbWXK3QwyVvYZ2uzMwB6JJM4wnxCK4lkzAYQiiWsNEwsNb4wvNMF8Btc4Zdh82fDZqfjr5NJsoo/5DLJh2hXTqSPeCTXcM7LIgtUZV7OtIF0a9HjHMxmdVI34GLA626q24YHhXmHPZPlj938yOmKwJiGk8ILxEdOeyXL1xDrZaBROsCaBzmaiNOV/9UzGNa4Wkz2SqT2sSSBbojQ+f3akkHA4tteIke+bwrW4xs+bItiFhvnOTL8KB41gdzyT5ToiJWSLrEkwvYEruOmZjFo2rTiiUCyadsN69lBDpNSyMVZlkvkMoSBi1PGzDZNS36msPtfQz3yCE5k7Zx7juUpcsdSAg4yRQVaoCGKWQd0TruCTkXaXstnsFisGqNwsL0ER7Ze6MFe6m8Nv60Wc0PjETYyNlaGVEAqS5fzwkNkGtWaoeVbehIAVKk8bjIkSdyqKx9hQLLbDrhJa/plUb3m8FBIATtWTminFCgVyo8Y390vMmhtQ88zdKHUc01QUrR0xVPxUoWVK17l7OCgUvK+zcx/zRQy52VrDucaJ2BjcLzHr2azc1eoeChfWflEoiLVMTCAQ6KG+E7Vs6nEXofGP0BgXCq4W9gmaZEvFFEAtG+p2cIVPKVbyv9tWhcIfQuGX3C8HGHZ08jafjh9mLmgbMTYgpdwuNMxssKLxpv0UagRdMe0K2XWzNsVQDdlMaLjFOgGyiptxhQHWSZAuYjpOBMujWEzHiiiAYqZaTPwDY0wlav0XK/UAAAAASUVORK5CYII="
@@ -109,6 +110,7 @@ export default function Navbar() {
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE0ElEQVR4nO1Za0xcRRS+gC2vavWHsVUMhmDEBBJEWYiJMRiICQmx4qNJY0ysxqiNNEFTNDVZjPUvr1800HtRFOsyFyQRTJhJN7rFx5aKLl3KQtyH210XTVGEfW85Zi4Bl13YndlXNeFLzp/ZmTPfN3Nm7pmzgrCHPewhaajV6uyBEaKSEH5HlAmSEDGICC+LMvErhvAybZMQHqZ9aF86RrjZGJS/OizK+IyEyK+STIDHRJnY6FjqI+PEP/1Sd4eISLcoYy8v8Wgh2Et9SaPa2zNCXhyZbBYRWUqWeJQh7KK+00Zco9HkKCuVauJypOEuOldKyUuSNk9EeCT95MlGWNG5JG1eSsjT1VBujwyRl/4VMabWam9JWgBv2HzYfQ6ebHoW7rn3PsjLLwBBEBSrfeyJRER0Jkd+ZLKZdbJzw5PQeOQoZOfkbJEOt+zsbHi99T04+9k4j4D1AZk8nRD5sxp8UETEyTgRqB59fEfikVZ44FZ4+cTb7DuBsIte2/yrj0gP6yTPHDvORD7cXnjlTY6dIN1c5CWN9pAoYw+L885+Dezbt59bwP7cXOjoO88mQMbe/i8m72ZffZoeMK7OU8+/GJNocXExtLa2wtTUFAwNDSlnYfO35mMvse+CjM8wkadJFs1TWB2X3F8WRbq0tBTa2tpAr9fD+vo6hKO3txeysrKUfg9WPMRxK2ErUwKoZJUcV11B4QGFTElJCbS0tIBOp4siHYmuri5lzJ13HeYQQKB/ePKR+OGD8Ls8TjdXnRd0TH5+AZcACZFTDPFPUKYECILAKQBr4gqQEJnlcXryrVPbBFRXV0NNTU0U4ch2Oua1Eyd5d8AQX4BMrvM4DQRDoFart4ipVCqora2NEhDZTscEAkHeHfiDJYT8PE5/mjNDopiZM/PugC/lAqj9ubLGTX55ZZWPPKsA3hCiNmuycgswzFsSEMAQQryHmNrn4zoIBkPM5Om5OT+uS2QHDCm/RjdN+72BWcDX+iv85GXGa5T3QxZulFh88rOJkZcZP2S8qUSkxUMyvvtZUgneZC5zAjBbMsebTlMbkDEcf/UNKK+oiEk+FApBVdXD0Hb6ffhkTMsr4gMhHQ8a3bQRPD4/FBUVKemBy+XaVYDJZFL61NfXg8frh28uGdPzoGGpRnw8egEWrc4tcu3t7Qq5pqamHdNp2lZXV6f06evr22pfsDjgo9EL8cKnS+DF4ODEbbEe9SaLYxtBt9sNZWUbj5vGxkZwOBxKyFCzWq3Q0NCg/FZVVQWBQGDb2EWrM8bNg10J10036qB4PdLpdzPzO4aIzWaD8vLyXZ+XlZWVirCd8O2PV6NDh86NyBEhGdDtC3dKD58/ENw1zj0ej/LioqlzYWGhYjQL7enpAZ/Pt+s4nz8Ag5EHG5EOIdWlxYuX5yBd0E0bt5UWU1bk7Z6YyN0s7lquLaVNgNnu2lx5mc4ppL68jjsTSZ25UmxEOlJeXg/HjPGX0yur7t0PQYL4e80TmjXZ2oVM4IcrlkNmu2uaJ4WOlVqb7a5L1KeQaUwb5ssWLA6y5vFy78ia2xtctDmx/uerDwg3GzTJumxcPGqyOMZ++33ZvvzXqnvV7b0RDIWA2qrbc4O2OZeu2xfM10ZnjObn/hN/s+5hD8L/H/8Anku/nJd3yY8AAAAASUVORK5CYII="
             />
           </div>
+//////////////////
         </div>
       </div>
     </>
