@@ -72,14 +72,4 @@
 .nav-right > .input > img{
     width: 15px;
 }
-.nav-right > .input > input{
-    width: 150px;
-    background-color: transparent;
-    border: none;
-    color: var(--gray);
-    padding-left: 5px;
-}
-.nav-right > .input > input::placeholder{
-    color: var(--gray);
-    padding-left: 5px;
-}
+

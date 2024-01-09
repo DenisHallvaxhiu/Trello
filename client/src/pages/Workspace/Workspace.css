@@ -127,7 +127,16 @@
     flex-direction: column;
     margin-top: 10px;
     gap: 4px 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease; 
 
+}
+
+.body>.content>.rolldown.active {
+    max-height: fit-content;
+    opacity: 1;
 }
 
 .body>.content>.rolldown>.rolldown-item {
@@ -139,6 +148,8 @@
     padding-left: 60px;
     border-radius: 8px;
     cursor: pointer;
+
+    
 }
 
 .body>.content>.rolldown>.rolldown-item:hover {
