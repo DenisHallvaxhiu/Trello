@@ -1,73 +1,85 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-//////////////
-import Icons from "../Icon";
-import { Search } from "../Search/Search";
-
-export default class Navbar extends Component {
-
-
-  handleFilterChange = (filteredData) => {
-    console.log("filter data from navbar " ,filteredData);
-  }
-
-
-  render() {
-    return (
-/////////////////
 import { motion } from "framer-motion";
+import Icons from "../Icon";
 
 export default function Navbar() {
-  const [inputFocus, setInputFocus] = useState(true);
+  const [inputFocus, setInputFocus] = useState(false);
 
+  const [searchResult, setSearchResult] = useState(null);
+
+  // Change this with a fetch request when backend is done
+
+  const fetchSearchResult = () => {
+    setSearchResult([
+      {
+        image:
+          "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+        title: "Trello",
+        desc: "User's worspace",
+      },
+      {
+        image:
+          "https://i.pinimg.com/736x/9f/e4/e4/9fe4e42a2f83f78caef84579c1f1980b.jpg",
+        title: "SocialMedia",
+        desc: "SocialMedia",
+      },
+      {
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSur5uoo_I8ypq-aeq7hjf1YvRhEm6lUWGocT3Xas6vfd-7SRcEvc-_j1N3gN2Q4BK3shI&usqp=CAU",
+        title: "Test",
+        desc: "Test",
+      },
+      {
+        image:
+          "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+        title: "Trello2",
+        desc: "Test",
+      },
+      {
+        image: "Dont show",
+        title: "Dont show",
+        desc: "",
+      },
+    ]);
+  };
   return (
     <>
-
       <div className="navbar">
         <div className="nav-left">
           <div>
             <Icons name="menu-icon" />
           </div>
           <div>
-            <Icons name='trello-icon3' />
+            <Icons name="trello-icon3" />
             <p id="trello">Trello</p>
           </div>
           <div>
-            Workspaces{" "}
-            <Icons name='arrow-down' />
+            Workspaces <Icons name="arrow-down" />
           </div>
           <div>
-            Recent{" "}
-            <Icons name='arrow-down' />
+            Recent <Icons name="arrow-down" />
           </div>
           <div>
-            Starred{" "}
-            <Icons name='arrow-down' />
+            Starred <Icons name="arrow-down" />
           </div>
           <div>
-            Templates{" "}
-            <Icons name='arrow-down' />
+            Templates <Icons name="arrow-down" />
           </div>
           <div id="create">Create</div>
         </div>
         <div className="nav-right">
           <div className="input">
-////////////////
-            <Icons name="search" />
-            <Search data={this.props.data} onFilterChange={this.handleFilterChange}/>
-            
-          </div>
-          <div><Icons name='notification' /></div>
-          <div><Icons name='help' /></div>
-          <div id="account-div"><Icons name='account' /></div>
-///////////////
             <img
               alt="search"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADhklEQVR4nO1ZzWsTQRQfK36hCGo9eBBErXrX6lEUxT9AUNGTJ9F/wdqcPRZUCO3OpI2t7WQmhSJpzHtpwM/Sxt6i0IoHj+JNBKto5DWJTSabNNnM5qPkBwPLsvt789t57828t4x10UUXviEUTR5zFNwVGia4xiWu8JvQ8IsGXdM9oXGcnnEUHGXtBCnlVqHxBtfwmiv4KzRmaxn0bP6d64FAoKelIhwFl7jGj7VOvvKADNfJi00XIOXbXVxjsHEBxlD4WIjUzqaIcGTsoFC4UMldhMZFofC+E02cH5HJk2NjL3bToGu6xxUM0DOV3JArfDcahQO+i+AKP7j6u4JnwzJ1vFYurhJ9QuOkuyDIBGdSvb65U4WVWA5Nz532yss19AsNKy5i5n1xswoxAePPX+1rlHtYxvdzjegWM8wmuMbLbiKCwfQ2WzaIy00Mt5XNaJ9wSbHLNlbCbWXK3QwyVvYZ2uzMwB6JJM4wnxCK4lkzAYQiiWsNEwsNb4wvNMF8Btc4Zdh82fDZqfjr5NJsoo/5DLJh2hXTqSPeCTXcM7LIgtUZV7OtIF0a9HjHMxmdVI34GLA626q24YHhXmHPZPlj938yOmKwJiGk8ILxEdOeyXL1xDrZaBROsCaBzmaiNOV/9UzGNa4Wkz2SqT2sSSBbojQ+f3akkHA4tteIke+bwrW4xs+bItiFhvnOTL8KB41gdzyT5ToiJWSLrEkwvYEruOmZjFo2rTiiUCyadsN69lBDpNSyMVZlkvkMoSBi1PGzDZNS36msPtfQz3yCE5k7Zx7juUpcsdSAg4yRQVaoCGKWQd0TruCTkXaXstnsFisGqNwsL0ER7Ze6MFe6m8Nv60Wc0PjETYyNlaGVEAqS5fzwkNkGtWaoeVbehIAVKk8bjIkSdyqKx9hQLLbDrhJa/plUb3m8FBIATtWTminFCgVyo8Y390vMmhtQ88zdKHUc01QUrR0xVPxUoWVK17l7OCgUvK+zcx/zRQy52VrDucaJ2BjcLzHr2azc1eoeChfWflEoiLVMTCAQ6KG+E7Vs6nEXofGP0BgXCq4W9gmaZEvFFEAtG+p2cIVPKVbyv9tWhcIfQuGX3C8HGHZ08jafjh9mLmgbMTYgpdwuNMxssKLxpv0UagRdMe0K2XWzNsVQDdlMaLjFOgGyiptxhQHWSZAuYjpOBMujWEzHiiiAYqZaTPwDY0wlav0XK/UAAAAASUVORK5CYII="
             />
             <input
-              onFocus={() => setInputFocus(true)}
-              onBlur={() => setInputFocus(true)}
+              onFocus={() => {
+                setInputFocus(true);
+                fetchSearchResult();
+              }}
+              onBlur={() => setInputFocus(false)}
               placeholder="Search"
               type="text"
             />
@@ -75,17 +87,34 @@ export default function Navbar() {
               <motion.div
                 className="input-dropdown"
                 initial={{ height: "0" }}
-                animate={{ height: "400px" }}
+                animate={{ height: "auto" }}
                 exit={{ height: "0px" }}
-                transition={{delay:0.15, duration: 0.5 }}
+                transition={{ delay: 0.15, duration: 0.5 }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corporis, recusandae! Maiores et recusandae placeat, enim
-                deserunt consequuntur ipsa reprehenderit, tempore suscipit sequi
-                eligendi dolores alias deleniti exercitationem est
-                necessitatibus dolor vero! Corporis dolore expedita asperiores
-                explicabo, ducimus minima error libero omnis quod perferendis
-                reiciendis nostrum velit similique nemo totam sunt.
+                <h3>RECENT BOARDS</h3>
+                <div className="search-result">
+                  {searchResult.slice(0, 4).map((data) => (
+                    <div className="search-result-item">
+                      <img src={data.image} alt="" />
+                      <div>
+                        <h4>{data.title}</h4>
+                        <p>{data.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <hr />
+                <div className="advanced-search">
+                  <img
+                    alt="search"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADhklEQVR4nO1ZzWsTQRQfK36hCGo9eBBErXrX6lEUxT9AUNGTJ9F/wdqcPRZUCO3OpI2t7WQmhSJpzHtpwM/Sxt6i0IoHj+JNBKto5DWJTSabNNnM5qPkBwPLsvt789t57828t4x10UUXviEUTR5zFNwVGia4xiWu8JvQ8IsGXdM9oXGcnnEUHGXtBCnlVqHxBtfwmiv4KzRmaxn0bP6d64FAoKelIhwFl7jGj7VOvvKADNfJi00XIOXbXVxjsHEBxlD4WIjUzqaIcGTsoFC4UMldhMZFofC+E02cH5HJk2NjL3bToGu6xxUM0DOV3JArfDcahQO+i+AKP7j6u4JnwzJ1vFYurhJ9QuOkuyDIBGdSvb65U4WVWA5Nz532yss19AsNKy5i5n1xswoxAePPX+1rlHtYxvdzjegWM8wmuMbLbiKCwfQ2WzaIy00Mt5XNaJ9wSbHLNlbCbWXK3QwyVvYZ2uzMwB6JJM4wnxCK4lkzAYQiiWsNEwsNb4wvNMF8Btc4Zdh82fDZqfjr5NJsoo/5DLJh2hXTqSPeCTXcM7LIgtUZV7OtIF0a9HjHMxmdVI34GLA626q24YHhXmHPZPlj938yOmKwJiGk8ILxEdOeyXL1xDrZaBROsCaBzmaiNOV/9UzGNa4Wkz2SqT2sSSBbojQ+f3akkHA4tteIke+bwrW4xs+bItiFhvnOTL8KB41gdzyT5ToiJWSLrEkwvYEruOmZjFo2rTiiUCyadsN69lBDpNSyMVZlkvkMoSBi1PGzDZNS36msPtfQz3yCE5k7Zx7juUpcsdSAg4yRQVaoCGKWQd0TruCTkXaXstnsFisGqNwsL0ER7Ze6MFe6m8Nv60Wc0PjETYyNlaGVEAqS5fzwkNkGtWaoeVbehIAVKk8bjIkSdyqKx9hQLLbDrhJa/plUb3m8FBIATtWTminFCgVyo8Y390vMmhtQ88zdKHUc01QUrR0xVPxUoWVK17l7OCgUvK+zcx/zRQy52VrDucaJ2BjcLzHr2azc1eoeChfWflEoiLVMTCAQ6KG+E7Vs6nEXofGP0BgXCq4W9gmaZEvFFEAtG+p2cIVPKVbyv9tWhcIfQuGX3C8HGHZ08jafjh9mLmgbMTYgpdwuNMxssKLxpv0UagRdMe0K2XWzNsVQDdlMaLjFOgGyiptxhQHWSZAuYjpOBMujWEzHiiiAYqZaTPwDY0wlav0XK/UAAAAASUVORK5CYII="
+                  />
+                  <p>Advanced Search</p>
+                  <img alt="enter" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC80lEQVR4nO2Va0/aYBiG+8m/bdAtFLd42NwHo04LFdrS87mllJOtuEM2J/6DyX7GvbRLkLlJeRlUsvROrqSBPoervKEUVaRIkSL/VYTRaKNzPaqEw9G4c32Hf2N03xne0UnP3ATaw1s6HI6wTNrDWzo3gSC+GbevvmGZBPHNjzwFsAqovNKKvmIVUHnFH3zBKqDyitf/jFVA5RW39wmrgMorTvcjVgGVV+zOB2Shen1wqp8i2z1Y4XVmTW4CZjjELPQghqB5uIwixHEM1W5B8fozaxJyEzDaV5iF6l9CMf10+TiO4bZCiHZnZk1CbgJ6K8YsFHcA2XgQcPwQTTOcWZNAvIggjDZUP6pofjTW/AjLQnb6kA3vQcBrQzDCzDpiAdUb0Ko3wLKR7C4k3Z0I2F4bvB5k1hELKG5/rLh9LBvR6kDSnSmBALzWyqwjFpCdHlZBct5FbUrADX79nWbUEQukP/UCJAuykp2SXD/+XjDaaKr2RMByAzQUL7MvsYBodkAKrwVgOB2O306PBsMZf72nqVpTAi3UJTezN7FAM3lSBNRlFwynIuz2JsudNZT06U5TlxwIivmbwIVoZ/YnFhD0APPCNi2wgorB4HKyWIKs25A06w9srzW5x3T8tD5rBrEAp7UwDxeyixqvIooeFifBdHxUBTNzDrFAQ/UxD6zkoMopCwvotgdGMDPnEAvUFRfzcs5rYDgJ/UdHSDHsmUiahRNWQE20MmcQC1zIDkg453Wcsk2Ene5E4KjKp58zgvEkNdGaqz+xACvaIIXhDRwxPEzbS8/2ESMQ92CfgFig1rSwCInEcVVMSa4X7VN7BLFAVTCwTlCkSV5CTHJ+14D3dYVc4PCExTmnrQWHJyy5QHn3HQ6PazhlJZw11GfhlJXSHZJdiAVevn6LdYIizYtXb7BOUKTZ3tm/3945wDqwVTn4TixQovfprco+1oO9MrHA5ubmRonepUvl3fsSvYdnoZzM3qWTXYgFihQpUoTKIz8BdlVB6sDZTAIAAAAASUVORK5CYII="/>
+                </div>
+                <div className="search-improve">
+                  <p>Help us improve your search results!</p>
+                </div>
               </motion.div>
             ) : null}
           </div>
@@ -110,7 +139,6 @@ export default function Navbar() {
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE0ElEQVR4nO1Za0xcRRS+gC2vavWHsVUMhmDEBBJEWYiJMRiICQmx4qNJY0ysxqiNNEFTNDVZjPUvr1800HtRFOsyFyQRTJhJN7rFx5aKLl3KQtyH210XTVGEfW85Zi4Bl13YndlXNeFLzp/ZmTPfN3Nm7pmzgrCHPewhaajV6uyBEaKSEH5HlAmSEDGICC+LMvErhvAybZMQHqZ9aF86RrjZGJS/OizK+IyEyK+STIDHRJnY6FjqI+PEP/1Sd4eISLcoYy8v8Wgh2Et9SaPa2zNCXhyZbBYRWUqWeJQh7KK+00Zco9HkKCuVauJypOEuOldKyUuSNk9EeCT95MlGWNG5JG1eSsjT1VBujwyRl/4VMabWam9JWgBv2HzYfQ6ebHoW7rn3PsjLLwBBEBSrfeyJRER0Jkd+ZLKZdbJzw5PQeOQoZOfkbJEOt+zsbHi99T04+9k4j4D1AZk8nRD5sxp8UETEyTgRqB59fEfikVZ44FZ4+cTb7DuBsIte2/yrj0gP6yTPHDvORD7cXnjlTY6dIN1c5CWN9pAoYw+L885+Dezbt59bwP7cXOjoO88mQMbe/i8m72ZffZoeMK7OU8+/GJNocXExtLa2wtTUFAwNDSlnYfO35mMvse+CjM8wkadJFs1TWB2X3F8WRbq0tBTa2tpAr9fD+vo6hKO3txeysrKUfg9WPMRxK2ErUwKoZJUcV11B4QGFTElJCbS0tIBOp4siHYmuri5lzJ13HeYQQKB/ePKR+OGD8Ls8TjdXnRd0TH5+AZcACZFTDPFPUKYECILAKQBr4gqQEJnlcXryrVPbBFRXV0NNTU0U4ch2Oua1Eyd5d8AQX4BMrvM4DQRDoFart4ipVCqora2NEhDZTscEAkHeHfiDJYT8PE5/mjNDopiZM/PugC/lAqj9ubLGTX55ZZWPPKsA3hCiNmuycgswzFsSEMAQQryHmNrn4zoIBkPM5Om5OT+uS2QHDCm/RjdN+72BWcDX+iv85GXGa5T3QxZulFh88rOJkZcZP2S8qUSkxUMyvvtZUgneZC5zAjBbMsebTlMbkDEcf/UNKK+oiEk+FApBVdXD0Hb6ffhkTMsr4gMhHQ8a3bQRPD4/FBUVKemBy+XaVYDJZFL61NfXg8frh28uGdPzoGGpRnw8egEWrc4tcu3t7Qq5pqamHdNp2lZXV6f06evr22pfsDjgo9EL8cKnS+DF4ODEbbEe9SaLYxtBt9sNZWUbj5vGxkZwOBxKyFCzWq3Q0NCg/FZVVQWBQGDb2EWrM8bNg10J10036qB4PdLpdzPzO4aIzWaD8vLyXZ+XlZWVirCd8O2PV6NDh86NyBEhGdDtC3dKD58/ENw1zj0ej/LioqlzYWGhYjQL7enpAZ/Pt+s4nz8Ag5EHG5EOIdWlxYuX5yBd0E0bt5UWU1bk7Z6YyN0s7lquLaVNgNnu2lx5mc4ppL68jjsTSZ25UmxEOlJeXg/HjPGX0yur7t0PQYL4e80TmjXZ2oVM4IcrlkNmu2uaJ4WOlVqb7a5L1KeQaUwb5ssWLA6y5vFy78ia2xtctDmx/uerDwg3GzTJumxcPGqyOMZ++33ZvvzXqnvV7b0RDIWA2qrbc4O2OZeu2xfM10ZnjObn/hN/s+5hD8L/H/8Anku/nJd3yY8AAAAASUVORK5CYII="
             />
           </div>
-//////////////////
         </div>
       </div>
     </>
