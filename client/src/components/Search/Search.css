@@ -1,0 +1,24 @@
+
+
+  .search.focused input {
+    width: 500px; /* Change to the desired width */
+    /* Add any other styles you want to change when focused */
+  }
+  
+.search > input{
+    width: 150px;
+    background-color: transparent;
+    border: none;
+    color: var(--gray);
+    padding-left: 5px;
+    transition: width 0.5s ease;
+}
+.search>ul>li>img {
+    width:17px;
+    height: 17px;
+}
+.search::placeholder{
+    color: var(--gray);
+    padding-left: 5px;
+}
+
