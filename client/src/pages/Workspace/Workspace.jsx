@@ -35,7 +35,7 @@ export default function Workspace() {
     {
       name: "Trello",
       image:
-        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSur5uoo_I8ypq-aeq7hjf1YvRhEm6lUWGocT3Xas6vfd-7SRcEvc-_j1N3gN2Q4BK3shI&usqp=CAU",
     },
     {
       name: "SocialMedia",

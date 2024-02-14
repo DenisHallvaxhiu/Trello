@@ -1,13 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import "./index.css"
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route,useRouteError } from "react-router-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Pages
+import Workspace from "./pages/Workspace/Workspace";
+import Login from "./pages/Login/Login"
+// 
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/workspace" element={<Workspace />} />
+        <Route path="/login" element= { <Login/>}/>
+        <Route path="*" element={<Login/>} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
