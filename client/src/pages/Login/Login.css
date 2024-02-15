@@ -41,12 +41,16 @@
     align-items: center;
 }
 .login > .content > .main >.card{
-    max-width: 400px;
-    min-height: 200px;
+    max-width: 500px;
     background-color: white;
     box-shadow: rgba(0,0,0,0.1) 0 0 10px;
-    padding: 25px 40px;
+    padding: 40px;
     margin: 5px;
+}
+.card > h6{
+    text-align: center;
+    color: #5e6c84;
+    font-size: 16px;
 }
 .card > form{
     display: flex;
@@ -62,7 +66,36 @@
     font-size: 14px;
     background-color: #fafbfc;
     border:  2px solid #dfe1e6;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+    padding: 0.5em;
+}
+.card >form > input:active,.card >form > input:focus{
+    border: 2px solid #4c9aff;
 }
 .card > form > button{
     height: 36px;
+    background: #5AAC44;
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.card > form > button:hover{
+    background :#61BD4F
+}
+.card > form > span{
+    color: red;
+}
+.main > .card > a{
+    margin-top: 8px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #0052cc;
+}
+.main > .card > a:hover{
+    text-decoration: underline;
 }
