@@ -19,5 +19,5 @@ const newUser = async (req, res) => {
     res.status(500).send("Error saving to database");
   }
 };
-
+// Export
 module.exports = newUser

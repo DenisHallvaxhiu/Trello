@@ -82,6 +82,9 @@
     border-radius: 5px;
     margin: 5px 0;
 }
+.card > form > button:disabled{
+    cursor: not-allowed;
+}
 .card > form > button:hover{
     background :#61BD4F
 }

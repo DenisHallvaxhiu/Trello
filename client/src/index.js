@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 // Pages
 import Workspace from "./pages/Workspace/Workspace";
 import Login from "./pages/Login/Login"
+import SignUp from "./pages/SignUp/SignUp";
 // 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -16,6 +17,7 @@ root.render(
       <Routes>
         <Route path="/workspace" element={<Workspace />} />
         <Route path="/login" element= { <Login/>}/>
+        <Route path= "/sign-up" element= {<SignUp/>} />
         <Route path="*" element={<Login/>} />
       </Routes>
     </BrowserRouter>

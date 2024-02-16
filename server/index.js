@@ -24,8 +24,8 @@ mongoose
   });
 
 // API CALLS
-
 app.use("/user", userRouter);
+
 
 // Listening
 const port = process.env.PortNumber;
